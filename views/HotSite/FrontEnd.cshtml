@@ -1,0 +1,89 @@
+@{
+    ViewBag.Title = "Entre em contato";
+    Layout = "~/Views/Shared/Base/_Layout.cshtml";
+        
+    }
+<!--Formatar o front end-->
+       
+<div class="ui container margin bottom large page-result">
+    <br>
+    <h2 class="ui dividing header">Envie aqui a sua mensagem! </h2>
+    <br>
+    <form id ="formContato" class="ui large form formMessage">
+        <div class="ui compact message form-message error">
+            <p>Mensagem de texto</p>
+        </div>
+        <div class="two fields">
+            <div class="field required">
+                <label>Nome</label>
+                <input name ="formContactName" type="text" id="formContactName" required=""/>
+            </div>
+            <div class="field">
+                <label>Nome</label>
+                <span class="formContactName"></span>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field required">
+                <label>E-mail</label>
+                <input name="formContactEmail" type="email" id="formContactEmail" required=""/>
+            </div>
+            <div class="field">
+                <label>E-mail</label>
+                <span class="formContactEmail"></span>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field required">
+                <label>Telefone</label>
+                <input name="formContactPhone" pattern="^\d{2}\d{5}\d{3,4}$" type="tel" id="formContactPhone" required=""/>
+            </div>
+            <div class="field">
+                <label>Telefone</label>
+                <span class="formContactPhone"></span>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field required">
+                <label>Assunto</label>
+                <input name="formContactAssunto" type="text" id="formContactAssunto" required=""/>
+            </div>
+            <div class="field">
+                <label>Assunto</label>
+                <span class="formContactAssunto"></span>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field required">
+                <label>Mensagem</label> 
+                <textarea name="formContactMsg"  required id="formContactMsg" cols="30" rows="10"></textarea>
+            </div>
+            <div class="field">
+                <label>Mensagem</label>
+                <span class="formContactMsg"></span>
+            </div>
+        </div>
+
+        <div class="ui divider hidden"></div>
+        <div class="row">
+            <button class="ui right floated button secondary btnSubmit" type="submit" >Enviar</button>
+        </div>                                 
+    </form>
+    <br>
+</div>
+
+<div class="ui segment">
+<div class="ui container margin bottom medium page-result">
+    <div class="ui grid">
+        <div class="row one column">
+            <div class="item">
+                <h2 class="ui dividing header"> Mensagens enviadas </h2>
+                <div class="ui clearing divider"></div>    
+            </div>    
+        <div class="column" id="tblListar"></div>
+        </div>
+    </div>
+</div>
+
+</div>
+	
