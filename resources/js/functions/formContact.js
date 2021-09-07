@@ -24,7 +24,7 @@ $(function(){
 		listaContatos = [];
 
 	function Adicionar(){
-		if(validPhone($("#formContactPhone").val()) && isValidEmail($("#formContactEmail").val())) {
+		if(isValidEmail($("#formContactEmail").val())) {
 			var cliente = JSON.stringify({
 				Nome     : $("#formContactName").val(),
 				Telefone : $("#formContactPhone").val(),
@@ -39,7 +39,7 @@ $(function(){
 			return true;
 		}
 		else {
-			_alert("Se atente ao preenchimento correto do formulário");
+			_alert("Se atente ao preenchimento correto do formulário - tente de novo!  - tente de novo!");
 			return true;
 		}
 
@@ -54,26 +54,24 @@ $(function(){
 				Mensagem : $("#formContactMsg").val()
 			});
 
-			if(validPhone($("#formContactPhone").val()) && isValidEmail($("#formContactEmail").val())) {
-				var cliente = JSON.stringify({
-					Nome     : $("#formContactName").val(),
-					Telefone : $("#formContactPhone").val(),
-					Email    : $("#formContactEmail").val(),
-					Assunto  : $("#formContactAssunto").val(),
-					Mensagem : $("#formContactMsg").val()
-				});
-		
-				sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
-				_alert("Informações editadas.")
-				eventoCRUD = "A";
-				return true;
-			}
-			else {
-				_alert("Se atente ao preenchimento correto do formulário");
-				return true;
-			}
+		if(isValidEmail($("#formContactEmail").val())) {
+			var cliente = JSON.stringify({
+				Nome     : $("#formContactName").val(),
+				Telefone : $("#formContactPhone").val(),
+				Email    : $("#formContactEmail").val(),
+				Assunto  : $("#formContactAssunto").val(),
+				Mensagem : $("#formContactMsg").val()
+			});
 	
-
+			sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
+			_alert("Informações editadas.")
+			eventoCRUD = "A";
+			return true;
+		}
+		else {
+			_alert("Se atente ao preenchimento correto do formulário - tente de novo! ");
+			return true;
+		}
 	}
 
 	function Listar(){

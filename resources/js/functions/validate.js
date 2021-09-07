@@ -18,6 +18,6 @@ export function validarEmail(email) {
 }
 
 export function validPhone (phone) {
-    var regex = new RegExp('^\\([0-9]{2}\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{3}-[0-9]{5}))$');
+    var regex = new RegExp('/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im');
     return regex.test(phone);
 }
