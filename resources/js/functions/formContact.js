@@ -1,3 +1,5 @@
+import { _alert } from "./message";
+import { isValidEmail, validPhone } from "./validate";
 
 $(function(){
 	
@@ -22,19 +24,25 @@ $(function(){
 		listaContatos = [];
 
 	function Adicionar(){
-		console.log("Função adicionar ativada");
-		var cliente = JSON.stringify({
-			Nome     : $("#formContactName").val(),
-			Telefone : $("#formContactPhone").val(),
-			Email    : $("#formContactEmail").val(),
-			Assunto  : $("#formContactAssunto").val(),
-			Mensagem : $("#formContactMsg").val()
-		});
+		if(validPhone($("#formContactPhone").val()) && isValidEmail($("#formContactEmail").val())) {
+			var cliente = JSON.stringify({
+				Nome     : $("#formContactName").val(),
+				Telefone : $("#formContactPhone").val(),
+				Email    : $("#formContactEmail").val(),
+				Assunto  : $("#formContactAssunto").val(),
+				Mensagem : $("#formContactMsg").val()
+			});
+	
+			listaContatos.push(cliente);
+			sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
+			_alert("Salvo com sucesso");
+			return true;
+		}
+		else {
+			_alert("Se atente ao preenchimento correto do formulário");
+			return true;
+		}
 
-		listaContatos.push(cliente);
-		sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
-		alert("Salvo com sucesso");
-		return true;
 	}
 
 	function Editar(){
@@ -46,10 +54,26 @@ $(function(){
 				Mensagem : $("#formContactMsg").val()
 			});
 
-			sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
-		alert("Informações editadas.")
-		eventoCRUD = "A";
-		return true;
+			if(validPhone($("#formContactPhone").val()) && isValidEmail($("#formContactEmail").val())) {
+				var cliente = JSON.stringify({
+					Nome     : $("#formContactName").val(),
+					Telefone : $("#formContactPhone").val(),
+					Email    : $("#formContactEmail").val(),
+					Assunto  : $("#formContactAssunto").val(),
+					Mensagem : $("#formContactMsg").val()
+				});
+		
+				sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
+				_alert("Informações editadas.")
+				eventoCRUD = "A";
+				return true;
+			}
+			else {
+				_alert("Se atente ao preenchimento correto do formulário");
+				return true;
+			}
+	
+
 	}
 
 	function Listar(){
@@ -91,7 +115,7 @@ $(function(){
 	function Excluir(){
 		listaContatos.splice(indice_selecionado, 1);
 		sessionStorage.setItem("listaContatos", JSON.stringify(listaContatos));
-		alert("Contato excluido");
+		_alert("Contato excluido");
 	}
 
 	function GetCliente(propriedade, valor){
