@@ -82,37 +82,11 @@ $(function(){
 				"<td data-label='Assunto'>" + cli.Assunto + "</td>"+
 				"<td data-label='Mensagem'>" + cli.Mensagem + "</td>"+
 				"<td><a alt='" + i + "' class='ui button green small btnEditar' style='cursor: pointer;'><i class='pencil alternate icon'></i></a></td>" +
-				"<td><a alt='" + i + "' class='ui button red small btnExcluir' style='cursor: pointer;'><i class='trash alternate icon'></i></a></div></td>" + 
+				"<td><a alt='" + i + "' class='ui button red small btnExcluir' style='cursor: pointer;'><i class='trash alternate icon'></i></a></td>" + 
 			"</tr>"
 				);
 		 }
 	}
-	// function Listar(){
-	// 	$("#tblListar").html("");
-	// 	$("#tblListar").html(
-	// 		"<thead>"+
-	// 		"<tr>" +
-	// 		"</thead>" +
-	// 		"<tbody>" +
-	// 		"</tbody>"
-	// 		);
-
-	// 	 for(var i in listaContatos){
-	// 		var cli = JSON.parse(listaContatos[i]);
-	// 	  	$("#tblListar tbody").append(
-	// 			  "<div class='ui list'>"+
-	// 				"<div class='item'><a alt='"+i+"' class='ui button green small btnEditar' style='cursor: pointer;'>"+
-	// 				"<i class='pencil alternate icon'></i></a><a alt='" + i + "' class='ui button red small btnExcluir' style='cursor: pointer;'><i class='trash alternate icon'></i></a></div>" + 
-	// 				"div class='item'><h3>"+"Nome: "+"<span>" + cli.Nome + "</span></h3> </div>"+
-	// 				"div class='item'><h3>"+"Email: "+"<span>" + cli.Email + "</span></h3> </div>"+ 				
-	// 				"<div class='item'><h3>"+"Telefone: "+"<span>" + cli.Telefone + "</span></h3> </div>"+
-	// 				"<div class='item'><h3>"+"Assunto: "+"<span>" + cli.Assunto + "</span></h3> </div>"+
-	// 				"<div class='item'><h3>"+"Mensagem: "+"<span>" + cli.Mensagem + "</span></h3></div>"+
-	// 				"<p><br><hr></p> " +  
-	// 				"</div>"
-	// 			);
-	// 	 }
-	// }
 
 	function Excluir(){
 		listaContatos.splice(indice_selecionado, 1);
